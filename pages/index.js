@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import useFetchData from "../hooks/useFetchData";
+import Countdown from "@/components/Countdown";
 
 const Home = () => {
   const { data, loading, error } = useFetchData("/api/weddingInfo");
@@ -12,7 +12,12 @@ const Home = () => {
   return (
     <>
       <h1>{data?.title}</h1>
-      <p>{data?.countdown?.date}</p>
+      <Countdown targetDate={data?.countdown?.date} />
+      <div>
+        <a href={data.link_form} target="_blank" rel="noreferrer">
+          <button>Confirmar asistencia</button>
+        </a>
+      </div>
     </>
   );
 };
