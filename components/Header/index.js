@@ -4,8 +4,9 @@ const HeaderStyles = styled.div`
   display: block;
   position: fixed;
   bottom: 0;
+  color: #5c4d3d;
   width: 100%;
-  background-color: white;
+  background-color: #f9f4ef;
   z-index: 1;
 
   @media (min-width: 768px) {
@@ -60,7 +61,7 @@ const HeaderItemStyles = styled.p`
 const HeaderItemLinkStyles = styled.a`
   padding: 19px 3px;
   text-decoration: none;
-  color: #0f104d;
+  color: #5c4d3d;
   font-size: 1.2rem;
   font-weight: 600;
   transition: color 0.3s;
@@ -77,7 +78,7 @@ const HeaderItemLinkStyles = styled.a`
     height: 3px;
     left: 50%;
     position: absolute;
-    background: #0f104d;
+    background: #5c4d3d;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 
@@ -89,8 +90,9 @@ const HeaderItemLinkStyles = styled.a`
   }
 
   &:hover {
-    background-color: #f5f5f5;
-    color: #2a85ee;
+    background-color: white;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    color: #d5bea8;
   }
 
   &:hover::after {

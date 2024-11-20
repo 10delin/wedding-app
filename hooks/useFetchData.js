@@ -13,7 +13,7 @@ const useFetchData = (url) => {
           throw new Error("Error al cargar los datos");
         }
         const result = await res.json();
-        setData(result[0]);
+        setData(result);
       } catch (err) {
         setError(err.message || "Error al cargar los datos");
       } finally {

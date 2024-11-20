@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   try {
     const response = await axios.get(
-      "https://673c907d96b8dcd5f3fa9343.mockapi.io/boda/weddingInfo"
+      "https://raw.githubusercontent.com/10delin/wedding-api/refs/heads/main/wedding-api.json"
     );
     res.status(200).json(response.data);
   } catch (error) {
