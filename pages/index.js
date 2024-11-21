@@ -80,12 +80,21 @@ const MainContent = styled.div`
     font-weight: 500;
     font-family:  "Playfair Display", serif;
     text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 46px;
+    }
   }
 
   button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    gap: 40px;
+    padding: 0 20px;
   }
 `;
 
@@ -95,11 +104,14 @@ const DescriptionContent = styled.div`
   font-size: 20px;
   gap: 20px;
   font-weight: 300;
-  margin-top: 20px;
   background-color: white;
   color: black;
   padding: 20px 40px;
   border-radius: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const DescriptionItem = styled.div`
@@ -115,6 +127,10 @@ display: flex;
 
   &:not(:last-child) {
     border-right: 1px solid black; /* Puedes cambiar el color según tus necesidades */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 

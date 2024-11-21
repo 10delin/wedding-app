@@ -71,6 +71,10 @@ const CountdownWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    gap: 5px;
+  }
 `;
 
 // Estilo de cada bloque de tiempo (días, horas, minutos, segundos)

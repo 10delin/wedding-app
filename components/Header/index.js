@@ -7,7 +7,7 @@ const HeaderStyles = styled.div`
   color: #5c4d3d;
   width: 100%;
   background-color: #f9f4ef;
-  z-index: 1;
+  z-index: 2;
 
   @media (min-width: 768px) {
     position: fixed;
