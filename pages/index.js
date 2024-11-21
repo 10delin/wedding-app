@@ -34,6 +34,24 @@ const Home = () => {
             </ConfirmAssistButton>
           </MainContent>
         </MainWrapper>
+
+        <ContentStyles>
+          <div>
+            <MainDescriptionStyles>
+              <MainDescriptionTitleStyles>
+                Nuestra boda se acerca. Viernes, Oct. 20, a domingo, Oct. 22,
+                2023
+              </MainDescriptionTitleStyles>
+              <MainDescriptionImageStyles>FOTO</MainDescriptionImageStyles>
+              <MainDescriptionContentStyles>
+                Estamos encantados de invitarte a celebrar nuestro matrimonio
+                Párrafo. Haz clic aquí para agregar tu propio texto y editar.
+                Aquí puedes contar tu historia y permitir que tus usuarios sepan
+                más sobre ti.
+              </MainDescriptionContentStyles>
+            </MainDescriptionStyles>
+          </div>
+        </ContentStyles>
       </Layout>
     </>
   );
@@ -115,7 +133,7 @@ const DescriptionItem = styled.div`
   text-align: center;
 
   &:not(:last-child) {
-    border-right: 1px solid black; 
+    border-right: 1px solid black;
   }
 
   @media (max-width: 768px) {
@@ -152,8 +170,6 @@ const glow = keyframes`
   }
 `;
 
-
-
 const DescriptionContent = styled.div`
   display: flex;
   flex-direction: row;
@@ -183,7 +199,7 @@ const ConfirmAssistButton = styled.a`
   text-transform: uppercase;
   border: 1px solid #f9bd43;
 
-  animation: ${slideUp} 1.5s ease-out, ${glow} 3s ease-in-out 1.5s 2; 
+  animation: ${slideUp} 1.5s ease-out, ${glow} 3s ease-in-out 1.5s 2;
   animation-fill-mode: forwards;
 
   &:hover {
@@ -191,4 +207,60 @@ const ConfirmAssistButton = styled.a`
     color: #f9bd43;
     border: 1px solid #f9bd43;
   }
+`;
+
+const ContentStyles = styled.div`
+  width: 100%; /* Asegura que ocupe todo el ancho del viewport */
+  background-color: #d1722a; /* Color de fondo que ocupará todo el ancho */
+  display: flex;
+  justify-content: center;
+
+  /* Contenedor interno para limitar el ancho del contenido */
+  & > div {
+    max-width: 1200px; /* Define el ancho máximo del contenido */
+    width: 100%; /* Para que no se salga del área visible */
+    padding: 20px; /* Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const MainDescriptionStyles = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: transparent;
+  color: white;
+  padding: 20px 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+`;
+
+const MainDescriptionTitleStyles = styled.h2`
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+`;
+
+const MainDescriptionImageStyles = styled.div`
+  background-color: #f9bd43;
+  color: black;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 20px 40px;
+  border-radius: 50px;
+`;
+
+const MainDescriptionContentStyles = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
 `;
