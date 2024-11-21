@@ -29,7 +29,7 @@ const Countdown = ({ targetDate }) => {
       } else {
         clearInterval(interval);
       }
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(interval);
   }, [calculateTimeLeft]);
