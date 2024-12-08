@@ -7,7 +7,7 @@ const Layout = ({ data, children }) => {
     <Container>
       <Header data={data.header} />
       <Main>{children}</Main>
-      <Footer data={data.footer} date={data.date} />
+      {/* <Footer data={data.footer} date={data.date} /> */}
     </Container>
   );
 };

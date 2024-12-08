@@ -3,8 +3,12 @@ import useFetchData from "@/hooks/useFetchData";
 import Countdown from "@/components/Countdown";
 import GlobalStyles from "@/styles/global";
 import Layout from "@/components/Layout";
-import BoatsImage from "@/tools/images/boats.webp";
+import MainImage from "@/tools/images/ejemplo.webp";
+import RingsImage from "@/tools/images/rings.webp";
 import { keyframes } from "styled-components";
+import VisibilityAnimation from "@/components/VisibilityAnimation";
+import BlockImages from "@/components/BlockImages";
+import HistoryWedding from "@/components/HistoryWedding";
 
 const Home = () => {
   const { data, loading, error } = useFetchData("/api/weddingInfo");
@@ -39,19 +43,44 @@ const Home = () => {
           <div>
             <MainDescriptionStyles>
               <MainDescriptionTitleStyles>
-                Nuestra boda se acerca. Viernes, Oct. 20, a domingo, Oct. 22,
-                2023
+                <VisibilityAnimation>
+                  <MainDescriptionTitleTop>
+                    Nuestra boda se acerca
+                  </MainDescriptionTitleTop>
+                </VisibilityAnimation>
+
+                <VisibilityAnimation>
+                  <MainDescriptionTitleBottom>
+                    Viernes, Oct. 20, a domingo, Oct. 22, 2023
+                  </MainDescriptionTitleBottom>
+                </VisibilityAnimation>
               </MainDescriptionTitleStyles>
-              <MainDescriptionImageStyles>FOTO</MainDescriptionImageStyles>
+
+              <VisibilityAnimation transitionDelay={0.3}>
+                <MainDescriptionImageStyles src={RingsImage.src} alt="Rings" />
+              </VisibilityAnimation>
+
               <MainDescriptionContentStyles>
-                Estamos encantados de invitarte a celebrar nuestro matrimonio
-                Párrafo. Haz clic aquí para agregar tu propio texto y editar.
-                Aquí puedes contar tu historia y permitir que tus usuarios sepan
-                más sobre ti.
+                <VisibilityAnimation transitionDelay={0.6}>
+                  <MainDescriptionContentTop>
+                    Estamos encantados de invitarte a celebrar nuestra boda
+                  </MainDescriptionContentTop>
+                </VisibilityAnimation>
+
+                <VisibilityAnimation transitionDelay={0.6}>
+                  <MainDescriptionContentBottom>
+                    Aquí puedes contar tu historia y permitir que tus usuarios
+                    sepan más sobre ti.
+                  </MainDescriptionContentBottom>
+                </VisibilityAnimation>
               </MainDescriptionContentStyles>
             </MainDescriptionStyles>
           </div>
         </ContentStyles>
+
+        <BlockImages />
+        <HistoryWedding />
+
       </Layout>
     </>
   );
@@ -77,11 +106,11 @@ const BackgroundImage = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("${BoatsImage.src}");
+  background-image: url("${MainImage.src}");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  filter: grayscale(35%) brightness(65%);
+  filter: grayscale(70%) brightness(65%);
   z-index: -1;
 `;
 
@@ -141,7 +170,7 @@ const DescriptionItem = styled.div`
   }
 `;
 
-const slideUp = keyframes`
+const SlideAndAppears = keyframes`
   0% {
     transform: translateY(120px);
     opacity: 0;
@@ -151,6 +180,7 @@ const slideUp = keyframes`
     opacity: 1;
   }
 `;
+
 
 const glow = keyframes`
   0% {
@@ -180,7 +210,7 @@ const DescriptionContent = styled.div`
   color: black;
   padding: 20px 40px;
   border-radius: 50px;
-  animation: ${slideUp} 1.5s ease-out;
+  animation: ${SlideAndAppears} 1.5s ease-out;
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -199,7 +229,7 @@ const ConfirmAssistButton = styled.a`
   text-transform: uppercase;
   border: 1px solid #f9bd43;
 
-  animation: ${slideUp} 1.5s ease-out, ${glow} 3s ease-in-out 1.5s 2;
+  animation: ${SlideAndAppears} 1.5s ease-out, ${glow} 3s ease-in-out 1.5s 2;
   animation-fill-mode: forwards;
 
   &:hover {
@@ -211,15 +241,15 @@ const ConfirmAssistButton = styled.a`
 
 const ContentStyles = styled.div`
   width: 100%; /* Asegura que ocupe todo el ancho del viewport */
-  background-color: #d1722a; /* Color de fondo que ocupará todo el ancho */
+  background-color: #ac5e23; /* Color de fondo que ocupará todo el ancho */
   display: flex;
   justify-content: center;
 
   /* Contenedor interno para limitar el ancho del contenido */
   & > div {
-    max-width: 1200px; /* Define el ancho máximo del contenido */
+    max-width: 1300px; /* Define el ancho máximo del contenido */
     width: 100%; /* Para que no se salga del área visible */
-    padding: 20px; /* Espaciado interno */
+    padding: 100px 0 200px 0%; /* Espaciado interno */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,10 +261,11 @@ const MainDescriptionStyles = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 100px;
   background-color: transparent;
   color: white;
   padding: 20px 40px;
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -242,25 +273,58 @@ const MainDescriptionStyles = styled.div`
   }
 `;
 
-const MainDescriptionTitleStyles = styled.h2`
+const MainDescriptionTitleStyles = styled.div`
+  display: flex;
   font-size: 20px;
   font-weight: 300;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
   width: 100%;
 `;
 
-const MainDescriptionImageStyles = styled.div`
-  background-color: #f9bd43;
-  color: black;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 20px 40px;
-  border-radius: 50px;
+const MainDescriptionTitleTop = styled.span`
+  display: block;
+  font-size: 60px;
+  text-align: left;
 `;
 
-const MainDescriptionContentStyles = styled.p`
+const MainDescriptionTitleBottom = styled.span`
+  display: block;
+  font-size: 22px;
+  text-align: left;
+`;
+
+const MainDescriptionImageStyles = styled.img`
+  width: 100%;
+  color: white;
+  height: auto;
+  max-width: 400px;
+  filter: brightness(0) invert(1);
+`;
+
+const MainDescriptionContentStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   font-size: 16px;
   font-weight: 300;
   text-align: center;
   width: 100%;
+`;
+
+const MainDescriptionContentTop = styled.span`
+  display: block;
+  font-size: 25px;
+  text-align: left;
+`;
+
+const MainDescriptionContentBottom = styled.span`
+  display: block;
+  font-size: 20px;
+  text-align: left;
 `;

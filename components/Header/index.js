@@ -54,25 +54,25 @@ const HeaderDescriptionStyles = styled.div`
 `;
 
 const HeaderItemStyles = styled.p`
-  margin-right: 10px;
   position: relative;
+  margin: 30px 15px;
 `;
 
 const HeaderItemLinkStyles = styled.a`
   padding: 19px 3px;
   text-decoration: none;
   color: #5c4d3d;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   transition: color 0.3s;
 
   @media (min-width: 768px) {
-    padding: 19px 15px;
+    padding: 30px 15px;
+    font-size: 1.2rem;
   }
 
   &::after {
     background: none repeat scroll 0 0 transparent;
-    top: -20px;
     content: "";
     display: block;
     height: 3px;
@@ -83,9 +83,9 @@ const HeaderItemLinkStyles = styled.a`
     width: 0;
 
     @media (min-width: 768px) {
-      bottom: -20px;
+      bottom: -30px;
       top: initial;
-      height: 2px;
+      height: 3px;
     }
   }
 
@@ -101,10 +101,20 @@ const HeaderItemLinkStyles = styled.a`
   }
 `;
 
+const HeaderTitleStyles = styled.h1`
+  font-size: 34px;
+  font-weight: 600;
+  color: #5c4d3d;
+  margin: 0;
+  padding: 15px 0;
+  letter-spacing: 3px;
+`;
+
 const Header = ({data}) => {
   return (
     <HeaderStyles>
       <HeaderContentStyles>
+        <HeaderTitleStyles>V&P</HeaderTitleStyles>
         <HeaderDescriptionStyles>
           {data?.map((item) => (
             <HeaderItemStyles key={item}>
