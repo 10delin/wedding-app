@@ -2,15 +2,15 @@ import { useState, useEffect, useRef } from "react";
 
 const useVisibility = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const elementRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasBeenVisible) {
           setIsVisible(true);
-        } else {
-          setIsVisible(false);
+          setHasBeenVisible(true); // Marcar como visible por primera vez
         }
       },
       {
@@ -26,7 +26,7 @@ const useVisibility = () => {
     return () => {
       if (elementRef.current) observer.disconnect();
     };
-  }, []);
+  }, [hasBeenVisible]); // Dependencia para que solo observe mientras no haya sido visible
 
   return { isVisible, elementRef };
 };

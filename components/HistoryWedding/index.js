@@ -3,7 +3,7 @@ import VisibilityAnimation from "../VisibilityAnimation";
 
 const HistoryWedding = () => {
   return (
-    <HistoryWeddingWrapper>
+    <HistoryWeddingWrapper id="headerItem2">
       <HistoryWeddingContainer>
         <VisibilityAnimation transitionDelay={0.2}>
           <HistoryWeddingTitle>La historia de la pedida</HistoryWeddingTitle>

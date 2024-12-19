@@ -5,7 +5,7 @@ import VisibilityAnimation from "../VisibilityAnimation";
 
 const BlockImages = () => {
   return (
-    <BlockImagesStyles>
+    <BlockImagesStyles id="headerItem1">
       <BlockLeftImageStyles>
         <VisibilityAnimation transitionDelay={0.2}>
           <img src={Example1.src} alt="Example 1" />

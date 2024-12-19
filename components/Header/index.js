@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 const HeaderStyles = styled.div`
   display: block;
@@ -67,6 +68,7 @@ const HeaderItemLinkStyles = styled.a`
   font-size: 1rem;
   font-weight: 600;
   transition: color 0.3s;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     padding: 30px 15px;
@@ -83,8 +85,8 @@ const HeaderItemLinkStyles = styled.a`
       transition: width 0.3s ease 0s, left 0.3s ease 0s;
       width: 0;
       bottom: -30px;
-    top: initial;
-    height: 3px;
+      top: initial;
+      height: 3px;
     }
 
     &:hover {
@@ -111,19 +113,33 @@ const HeaderTitleStyles = styled.h1`
     margin: 0;
     padding: 15px 0;
     letter-spacing: 3px;
+    cursor: pointer;
   }
 `;
 
 const Header = ({ data }) => {
+  const scrollTo = useSmoothScroll(70);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <HeaderStyles>
       <HeaderContentStyles>
-        <HeaderTitleStyles>V&P</HeaderTitleStyles>
+        <HeaderTitleStyles onClick={scrollToTop}>
+          V&P
+        </HeaderTitleStyles>
         <HeaderDescriptionStyles>
           {data?.map((item) => (
-            <HeaderItemStyles key={item}>
-              <HeaderItemLinkStyles href={`#${item}`}>
-                {item}
+            <HeaderItemStyles key={item.id}>
+              <HeaderItemLinkStyles
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(item.id);
+                }}
+              >
+                {item.name}
               </HeaderItemLinkStyles>
             </HeaderItemStyles>
           ))}
@@ -134,3 +150,4 @@ const Header = ({ data }) => {
 };
 
 export default Header;
+
