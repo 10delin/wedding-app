@@ -3,12 +3,13 @@ import useFetchData from "@/hooks/useFetchData";
 import Countdown from "@/components/Countdown";
 import GlobalStyles from "@/styles/global";
 import Layout from "@/components/Layout";
-import MainImage from "@/tools/images/ejemplo.webp";
+import MainImage from "@/tools/images/prueba.jpg";
 import RingsImage from "@/tools/images/rings.webp";
 import { keyframes } from "styled-components";
 import VisibilityAnimation from "@/components/VisibilityAnimation";
 import BlockImages from "@/components/BlockImages";
 import HistoryWedding from "@/components/HistoryWedding";
+import Head from "next/head"; // Importa el componente Head
 
 const Home = () => {
   const { data, loading, error } = useFetchData("/api/weddingInfo");
@@ -18,6 +19,12 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <GlobalStyles />
       <Layout data={data}>
         <MainWrapper>
@@ -102,16 +109,19 @@ const MainWrapper = styled.div`
 
 const BackgroundImage = styled.div`
   position: absolute;
-  top: 0;
+  top: -100px;
   left: 0;
-  right: 0;
+  right: -200px;
   bottom: 0;
   background-image: url("${MainImage.src}");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  filter: grayscale(70%) brightness(65%);
+  filter: grayscale(5%) brightness(85%);
   z-index: -1;
+
+  @media (max-width: 768px) {
+    top: -200px;
+  }
 `;
 
 const MainContent = styled.div`
@@ -127,10 +137,9 @@ const MainContent = styled.div`
   align-items: center;
 
   h1 {
-    font-size: 110px;
+    font-size: 100px;
     margin: 0;
     font-weight: 500;
-    font-family: "Playfair Display", serif;
     text-transform: uppercase;
 
     @media (max-width: 768px) {
@@ -241,7 +250,7 @@ const ConfirmAssistButton = styled.a`
 
 const ContentStyles = styled.div`
   width: 100%; /* Asegura que ocupe todo el ancho del viewport */
-  background-color: #ac5e23; /* Color de fondo que ocupará todo el ancho */
+  background-color: rgb(172 125 35);
   display: flex;
   justify-content: center;
 
@@ -249,10 +258,15 @@ const ContentStyles = styled.div`
   & > div {
     max-width: 1300px; /* Define el ancho máximo del contenido */
     width: 100%; /* Para que no se salga del área visible */
-    padding: 100px 0 200px 0%; /* Espaciado interno */
+    padding: 100px 0 200px 0; /* Espaciado interno */
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 768px) {
+      max-width: 1100px;
+      padding: 100px 0 100px 0;
+    }
   }
 `;
 
@@ -270,6 +284,8 @@ const MainDescriptionStyles = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 10px;
+    padding: 0px;
+    width: 80%;
   }
 `;
 
@@ -283,18 +299,32 @@ const MainDescriptionTitleStyles = styled.div`
   align-items: flex-start;
   gap: 30px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const MainDescriptionTitleTop = styled.span`
   display: block;
   font-size: 60px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 40px;
+  }
 `;
 
 const MainDescriptionTitleBottom = styled.span`
   display: block;
   font-size: 22px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const MainDescriptionImageStyles = styled.img`
@@ -303,6 +333,10 @@ const MainDescriptionImageStyles = styled.img`
   height: auto;
   max-width: 400px;
   filter: brightness(0) invert(1);
+
+  @media (max-width: 768px) {
+    max-width: 200px;
+  }
 `;
 
 const MainDescriptionContentStyles = styled.div`
@@ -315,16 +349,29 @@ const MainDescriptionContentStyles = styled.div`
   font-weight: 300;
   text-align: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const MainDescriptionContentTop = styled.span`
   display: block;
   font-size: 25px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const MainDescriptionContentBottom = styled.span`
   display: block;
   font-size: 20px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;

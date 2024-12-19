@@ -21,7 +21,6 @@ const HistoryWedding = () => {
         <video
           src="/tools/videos/proposal.mp4"
           controls
-          width="500"
           autoPlay
           loop
           muted
@@ -49,9 +48,11 @@ const HistoryWeddingWrapper = styled.div`
   margin: 200px auto;
   max-width: 1200px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
+    width: 80%;
+    padding: 0;
     }
 `;
 
@@ -61,6 +62,10 @@ const HistoryWeddingContainer = styled.div`
   gap: 50px;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    gap: 30px;
+  }
 `;
 
 const HistoryWeddingTitle = styled.h2`
@@ -68,6 +73,12 @@ const HistoryWeddingTitle = styled.h2`
   font-weight: 400;
   color: black;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+    text-align: center;
+    text-wrap: balance;
+  }
 `;
 
 const HistoryWeddingContent = styled.div`
@@ -80,4 +91,16 @@ const ProprosalVideo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  video {
+    width: 500px;
+    height: auto;
+  }
+
+  @media (max-width: 1024px) {
+    video {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+  }
 `;

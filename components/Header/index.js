@@ -6,7 +6,7 @@ const HeaderStyles = styled.div`
   bottom: 0;
   color: #5c4d3d;
   width: 100%;
-  background-color: #f9f4ef;
+  background-color: #d2c29b;
   z-index: 2;
 
   @media (min-width: 768px) {
@@ -21,7 +21,6 @@ const HeaderContentStyles = styled.div`
   align-items: center;
   box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  padding: 0 5%;
 
   @media (min-width: 768px) {
     padding: 0 10%;
@@ -55,7 +54,10 @@ const HeaderDescriptionStyles = styled.div`
 
 const HeaderItemStyles = styled.p`
   position: relative;
-  margin: 30px 15px;
+
+  @media (min-width: 768px) {
+    margin: 30px 5px;
+  }
 `;
 
 const HeaderItemLinkStyles = styled.a`
@@ -69,48 +71,50 @@ const HeaderItemLinkStyles = styled.a`
   @media (min-width: 768px) {
     padding: 30px 15px;
     font-size: 1.2rem;
-  }
 
-  &::after {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    display: block;
-    height: 3px;
-    left: 50%;
-    position: absolute;
-    background: #5c4d3d;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-
-    @media (min-width: 768px) {
-      bottom: -30px;
-      top: initial;
+    &::after {
+      background: none repeat scroll 0 0 transparent;
+      content: "";
+      display: block;
       height: 3px;
+      left: 50%;
+      position: absolute;
+      background: #5c4d3d;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+      bottom: -30px;
+    top: initial;
+    height: 3px;
     }
-  }
 
-  &:hover {
-    background-color: white;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    color: #d5bea8;
-  }
+    &:hover {
+      background-color: white;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      color: #d5bea8;
+    }
 
-  &:hover::after {
-    width: 100%;
-    left: 0;
+    &:hover::after {
+      width: 100%;
+      left: 0;
+    }
   }
 `;
 
 const HeaderTitleStyles = styled.h1`
-  font-size: 34px;
-  font-weight: 600;
-  color: #5c4d3d;
-  margin: 0;
-  padding: 15px 0;
-  letter-spacing: 3px;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+    font-size: 34px;
+    font-weight: 600;
+    color: #5c4d3d;
+    margin: 0;
+    padding: 15px 0;
+    letter-spacing: 3px;
+  }
 `;
 
-const Header = ({data}) => {
+const Header = ({ data }) => {
   return (
     <HeaderStyles>
       <HeaderContentStyles>
@@ -118,7 +122,9 @@ const Header = ({data}) => {
         <HeaderDescriptionStyles>
           {data?.map((item) => (
             <HeaderItemStyles key={item}>
-              <HeaderItemLinkStyles href={`#${item}`}>{item}</HeaderItemLinkStyles>
+              <HeaderItemLinkStyles href={`#${item}`}>
+                {item}
+              </HeaderItemLinkStyles>
             </HeaderItemStyles>
           ))}
         </HeaderDescriptionStyles>

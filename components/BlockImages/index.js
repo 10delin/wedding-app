@@ -55,6 +55,10 @@ const BlockImagesStyles = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    width: 100%;
+    margin: 0;
+    width: 100%;
+    margin-top: 100px;
   }
 `;
 
@@ -64,6 +68,11 @@ const BlockLeftImageStyles = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+
+  @media (max-width: 768px) {
+    gap: 5px;
+    width: 80%
+  }
 `;
 
 const BlockRightImageStyles = styled.div`
@@ -72,12 +81,23 @@ const BlockRightImageStyles = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+
+  @media (max-width: 768px) {
+    gap: 5px;
+    width: 80%;
+  }
 `;
 
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const TextTitle = styled.h2`
@@ -85,9 +105,19 @@ const TextTitle = styled.h2`
   font-weight: 400;
   color: black;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+    text-align: center;
+  }
 `;
 
 const TextDescription = styled.p`
   font-size: 16px;
   color: black;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    text-align: center;
+  }
 `;
