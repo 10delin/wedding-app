@@ -1,37 +1,34 @@
 import styled from "styled-components";
 import VisibilityAnimation from "../VisibilityAnimation";
 
-const HistoryWedding = () => {
+const HistoryWedding = ({data}) => {
   return (
     <HistoryWeddingWrapper id="headerItem2">
-      <HistoryWeddingContainer>
-        <VisibilityAnimation transitionDelay={0.2}>
-          <HistoryWeddingTitle>La historia de la pedida</HistoryWeddingTitle>
-        </VisibilityAnimation>
-        <VisibilityAnimation transitionDelay={0.4}>
-          <HistoryWeddingContent>
-            El dia 2 de enero en la playa del Buzo en el puerto de Santa Maria,
-            en un dia soleado y con una puesta de sol espectacular, se produjo
-            la pedida de mano. Fue un momento muy especial y emotivo, en el que
-            ambos disfrutamos de un momento unico.
-          </HistoryWeddingContent>
-        </VisibilityAnimation>
-      </HistoryWeddingContainer>
-      <ProprosalVideo>
-        <video
-          src="/tools/videos/proposal.mp4"
-          controls
-          autoPlay
-          loop
-          muted
-          style={{
-            borderRadius: "8px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          Your browser does not support the video tag.
-        </video>
-      </ProprosalVideo>
+      <div>
+        <HistoryWeddingContainer>
+          <VisibilityAnimation transitionDelay={0.2}>
+            <HistoryWeddingTitle>{data?.title}</HistoryWeddingTitle>
+          </VisibilityAnimation>
+          <VisibilityAnimation transitionDelay={0.4}>
+            {data?.content}
+          </VisibilityAnimation>
+        </HistoryWeddingContainer>
+        <ProprosalVideo>
+          <video
+            src="/tools/videos/proposal.mp4"
+            controls
+            autoPlay
+            loop
+            muted
+            style={{
+              borderRadius: "8px",
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            Your browser does not support the video tag.
+          </video>
+        </ProprosalVideo>
+      </div>
     </HistoryWeddingWrapper>
   );
 };
@@ -39,21 +36,27 @@ const HistoryWedding = () => {
 export default HistoryWedding;
 
 const HistoryWeddingWrapper = styled.div`
+  width: 100%;
+  background-color: rgb(239 184 77 / 44%); /* Fondo amarillo-naranja */
   display: flex;
-  flex-direction: row;
-  gap: 100px;
   justify-content: center;
-  align-items: center;
-  padding: 50px;
-  margin: 150px auto;
-  max-width: 1200px;
+
+  & > div {
+    max-width: 1300px;
+    width: 100%;
+    padding: 50px 0 200px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
 
     @media (max-width: 1024px) {
-    flex-direction: column-reverse;
-    gap: 30px;
-    width: 80%;
-    padding: 0;
+      max-width: 1100px;
+      padding: 100px 20px 100px 20px;
+      flex-direction: column;
+      gap: 50px;
     }
+  }
 `;
 
 const HistoryWeddingContainer = styled.div`
@@ -62,9 +65,11 @@ const HistoryWeddingContainer = styled.div`
   gap: 50px;
   justify-content: center;
   align-items: center;
+  padding: 0px 80px;
 
   @media (max-width: 1024px) {
     gap: 30px;
+    padding: 0px 20px;
   }
 `;
 
@@ -73,6 +78,7 @@ const HistoryWeddingTitle = styled.h2`
   font-weight: 400;
   color: black;
   margin: 0;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 40px;

@@ -128,7 +128,7 @@ const Header = ({ data }) => {
     <HeaderStyles>
       <HeaderContentStyles>
         <HeaderTitleStyles onClick={scrollToTop}>
-          V&P
+          {data?.logo}
         </HeaderTitleStyles>
         <HeaderDescriptionStyles>
           {data?.map((item) => (

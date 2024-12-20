@@ -3,7 +3,7 @@ import Example2 from "/tools/images/ejemplo2.webp";
 import styled from "styled-components";
 import VisibilityAnimation from "../VisibilityAnimation";
 
-const BlockImages = () => {
+const BlockImages = ({data}) => {
   return (
     <BlockImagesStyles id="headerItem1">
       <BlockLeftImageStyles>
@@ -12,9 +12,9 @@ const BlockImages = () => {
         </VisibilityAnimation>
         <TextContent>
           <VisibilityAnimation transitionDelay={0.3}>
-            <TextTitle>Ceremonia</TextTitle>
+            <TextTitle>{data?.ceremony.title}</TextTitle>
             <TextDescription>
-              Viernes, Oct. 20, a domingo, Oct. 22, 2023
+              {data?.ceremony.description}
             </TextDescription>
           </VisibilityAnimation>
         </TextContent>
@@ -25,9 +25,9 @@ const BlockImages = () => {
         </VisibilityAnimation>
         <TextContent>
           <VisibilityAnimation transitionDelay={0.3}>
-            <TextTitle>Recepción</TextTitle>
+            <TextTitle>{data?.reception.title}</TextTitle>
             <TextDescription>
-              Viernes, Oct. 20, a domingo, Oct. 22, 2023
+              {data?.reception.description}
             </TextDescription>
           </VisibilityAnimation>
         </TextContent>
@@ -43,14 +43,16 @@ const BlockImagesStyles = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: -90px 0;
+  margin: -90px 0 100px 0;
   gap: 50px;
   z-index: 2;
+  border-radius: 10px;
 
   img {
     width: 100%;
     max-width: 600px;
     height: auto;
+    border-radius: 10px;
   }
 
   @media (max-width: 768px) {
@@ -59,6 +61,7 @@ const BlockImagesStyles = styled.div`
     margin: 0;
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -115,6 +118,7 @@ const TextTitle = styled.h2`
 const TextDescription = styled.p`
   font-size: 16px;
   color: black;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 14px;
