@@ -10,8 +10,10 @@ import VisibilityAnimation from "@/components/VisibilityAnimation";
 import BlockImages from "@/components/BlockImages";
 import HistoryWedding from "@/components/HistoryWedding";
 import Head from "next/head"; // Importa el componente Head
+import Carousel from "@/components/Carousel";
+import { getStaticProps } from '@/tools/images.js';
 
-const Home = () => {
+const Home = ({ images }) => {
   const { data, loading, error } = useFetchData("/api/weddingInfo");
 
   if (loading) return <p>Loading...</p>;
@@ -84,14 +86,16 @@ const Home = () => {
             </MainDescriptionStyles>
           </div>
         </ContentStyles>
-
         <BlockImages />
         <HistoryWedding />
+        <Carousel images={images} />
 
       </Layout>
     </>
   );
 };
+
+export { getStaticProps };
 
 export default Home;
 

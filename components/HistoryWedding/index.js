@@ -45,11 +45,11 @@ const HistoryWeddingWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 50px;
-  margin: 200px auto;
+  margin: 150px auto;
   max-width: 1200px;
 
     @media (max-width: 1024px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 30px;
     width: 80%;
     padding: 0;

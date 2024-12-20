@@ -1,5 +1,5 @@
-import Example1 from "@/tools/images/ejemplo1.webp";
-import Example2 from "@/tools/images/ejemplo2.webp";
+import Example1 from "/tools/images/ejemplo1.webp";
+import Example2 from "/tools/images/ejemplo2.webp";
 import styled from "styled-components";
 import VisibilityAnimation from "../VisibilityAnimation";
 
