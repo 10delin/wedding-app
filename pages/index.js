@@ -7,7 +7,7 @@ import BlockImages from "@/components/BlockImages";
 import HistoryWedding from "@/components/HistoryWedding";
 import Head from "next/head"; // Importa el componente Head
 import Carousel from "@/components/Carousel";
-import { getStaticProps } from '@/tools/images.js';
+import { getStaticProps } from "@/tools/images.js";
 import Rings from "@/components/Rings";
 import Main from "@/components/Main";
 import Explore from "@/components/Explore";
@@ -29,8 +29,8 @@ const Home = ({ images }) => {
       <GlobalStyles />
       <Layout data={data}>
         <Main data={data} />
-        <Rings data={data?.rings}/>
-        <BlockImages data={data?.block_images}/>
+        <Rings data={data?.rings} />
+        <BlockImages data={data?.block_images} />
         <HistoryWedding data={data?.history} />
         <Carousel images={images} />
         <Explore data={data?.explore} />
@@ -42,6 +42,3 @@ const Home = ({ images }) => {
 export { getStaticProps };
 
 export default Home;
-
-
-
