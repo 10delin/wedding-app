@@ -93,7 +93,7 @@ const MainDescriptionTitleStyles = styled.div`
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 30px;
   width: 100%;
 

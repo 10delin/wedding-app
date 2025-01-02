@@ -89,7 +89,6 @@ const SliderWrapper = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  display: flex !important;
   align-items: center;
   justify-content: flex-start;
 
