@@ -42,7 +42,7 @@ const FAQAccordionWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  padding: 50px 0;
 
   & > div {
     max-width: 800px;
@@ -103,8 +103,8 @@ const Question = styled.div`
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 15px 20px;
-    gap: 15px;
+    padding: 20px 15px;
+    gap: 20px;
   }
 `;
 
@@ -135,6 +135,6 @@ const Answer = styled.div`
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: ${({ active }) => (active ? "15px 20px" : "0 20px")};
+    padding: ${({ active }) => (active ? "20px 15px" : "0 15px")};
   }
 `;
