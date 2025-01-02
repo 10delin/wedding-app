@@ -11,7 +11,8 @@ const Main = ({data}) => (
       <h1>{data?.title}</h1>
       <DescriptionContent>
         <DescriptionItem>{data.dateFormat}</DescriptionItem>
-        <DescriptionItem>{`${data?.location.ceremony.name} | ${data?.location.ceremony.address}`}</DescriptionItem>
+        <Separator />
+        <DescriptionItem>{data?.location.ceremony.address}</DescriptionItem>
       </DescriptionContent>
       <ConfirmAssistButton
         href={data?.link_form}
@@ -33,8 +34,22 @@ const MainWrapper = styled.div`
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 160vh;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    min-height: 100vh;
+  }
+`;
+
+const Separator = styled.span`
+  display: inline-block;
+  width: 1px;
+  height: auto;
+  background-color: black;
+  margin: 0 10px;
+  align-self: stretch; /* Esto asegura que la línea ocupe toda la altura del contenedor */
 `;
 
 const BackgroundImage = styled.div`
@@ -65,6 +80,7 @@ const MainContent = styled.div`
   max-width: 700px;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 
   h1 {
     font-size: 100px;
@@ -86,6 +102,7 @@ const MainContent = styled.div`
   @media (max-width: 768px) {
     gap: 40px;
     padding: 0 20px;
+    margin-top: 50px;
   }
 `;
 
@@ -100,12 +117,8 @@ const DescriptionItem = styled.div`
   width: 100%;
   text-align: center;
 
-  &:not(:last-child) {
-    border-right: 1px solid black;
-  }
-
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -142,7 +155,7 @@ const DescriptionContent = styled.div`
   display: flex;
   flex-direction: row;
   font-size: 20px;
-  gap: 20px;
+  gap: 10px;
   font-weight: 300;
   background-color: white;
   color: black;
@@ -152,6 +165,7 @@ const DescriptionContent = styled.div`
 
   @media (max-width: 768px) {
     font-size: 16px;
+    padding: 15px 40px;
   }
 `;
 
@@ -174,5 +188,10 @@ const ConfirmAssistButton = styled.a`
     background-color: white;
     color: #f9bd43;
     border: 1px solid #f9bd43;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 15px 40px;
   }
 `;

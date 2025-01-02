@@ -2,16 +2,14 @@ import styled from "styled-components";
 import VisibilityAnimation from "@/components/VisibilityAnimation";
 import RingsImage from "@/tools/images/rings.webp";
 
-const Rings = ({data}) => {
+const Rings = ({ data }) => {
   return (
     <ContentStyles>
       <div>
         <MainDescriptionStyles>
           <MainDescriptionTitleStyles>
             <VisibilityAnimation>
-              <MainDescriptionTitleTop>
-                {data?.title}
-              </MainDescriptionTitleTop>
+              <MainDescriptionTitleTop>{data?.title}</MainDescriptionTitleTop>
             </VisibilityAnimation>
 
             <VisibilityAnimation>
@@ -46,19 +44,18 @@ const Rings = ({data}) => {
 
 export default Rings;
 
-
-
 const ContentStyles = styled.div`
   width: 100%; /* Asegura que ocupe todo el ancho del viewport */
   background-color: rgb(172 125 35);
   display: flex;
   justify-content: center;
+  font-size: 30px;
 
   /* Contenedor interno para limitar el ancho del contenido */
   & > div {
     max-width: 1300px; /* Define el ancho máximo del contenido */
     width: 100%; /* Para que no se salga del área visible */
-    padding: 100px 0 200px 0; /* Espaciado interno */
+    padding: 100px 50px 200px 50px; /* Espaciado interno */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,6 +63,7 @@ const ContentStyles = styled.div`
     @media (max-width: 768px) {
       max-width: 1100px;
       padding: 100px 0 100px 0;
+      font-size: 20px;
     }
   }
 `;
@@ -91,7 +89,6 @@ const MainDescriptionStyles = styled.div`
 
 const MainDescriptionTitleStyles = styled.div`
   display: flex;
-  font-size: 20px;
   font-weight: 300;
   text-align: center;
   flex-direction: column;
@@ -103,23 +100,17 @@ const MainDescriptionTitleStyles = styled.div`
   @media (max-width: 768px) {
     align-items: center;
     justify-content: center;
+    gap: 0px;
   }
 `;
 
 const MainDescriptionTitleTop = styled.span`
   display: block;
-  font-size: 60px;
-  text-align: left;
-
-  @media (max-width: 768px) {
-    text-align: center;
-    font-size: 40px;
-  }
+  text-align: center;
 `;
 
 const MainDescriptionTitleBottom = styled.span`
   display: block;
-  font-size: 22px;
   text-align: left;
 
   @media (max-width: 768px) {
@@ -145,7 +136,6 @@ const MainDescriptionContentStyles = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-size: 16px;
   font-weight: 300;
   text-align: center;
   width: 100%;
@@ -158,7 +148,6 @@ const MainDescriptionContentStyles = styled.div`
 
 const MainDescriptionContentTop = styled.span`
   display: block;
-  font-size: 25px;
   text-align: left;
 
   @media (max-width: 768px) {
@@ -168,7 +157,6 @@ const MainDescriptionContentTop = styled.span`
 
 const MainDescriptionContentBottom = styled.span`
   display: block;
-  font-size: 20px;
   text-align: left;
 
   @media (max-width: 768px) {

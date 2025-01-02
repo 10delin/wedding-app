@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import VisibilityAnimation from "../VisibilityAnimation";
 
-const HistoryWedding = ({data}) => {
+const HistoryWedding = ({ data }) => {
   return (
     <HistoryWeddingWrapper id="headerItem2">
       <div>
@@ -13,21 +13,23 @@ const HistoryWedding = ({data}) => {
             {data?.content}
           </VisibilityAnimation>
         </HistoryWeddingContainer>
-        <ProprosalVideo>
-          <video
-            src="/tools/videos/proposal.mp4"
-            controls
-            autoPlay
-            loop
-            muted
-            style={{
-              borderRadius: "8px",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-            }}
-          >
-            Your browser does not support the video tag.
-          </video>
-        </ProprosalVideo>
+        <VisibilityAnimation transitionDelay={0.6}>
+          <ProprosalVideo>
+            <video
+              src="/tools/videos/proposal.mp4"
+              controls
+              autoPlay
+              loop
+              muted
+              style={{
+                borderRadius: "8px",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+              }}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </ProprosalVideo>
+        </VisibilityAnimation>
       </div>
     </HistoryWeddingWrapper>
   );
@@ -44,7 +46,7 @@ const HistoryWeddingWrapper = styled.div`
   & > div {
     max-width: 1300px;
     width: 100%;
-    padding: 50px 0 200px 0;
+    padding: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -98,7 +100,7 @@ const ProprosalVideo = styled.div`
   flex-direction: column;
   gap: 30px;
   video {
-    width: 500px;
+    width: 400px;
     height: auto;
   }
 

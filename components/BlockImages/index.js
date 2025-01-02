@@ -1,5 +1,5 @@
-import Example1 from "/tools/images/ejemplo1.webp";
-import Example2 from "/tools/images/ejemplo2.webp";
+import Example1 from "@/tools/images/ubications/san-marcos.jpg";
+import Example2 from "@/tools/images/ubications/el-majuelo.jpg";
 import styled from "styled-components";
 import VisibilityAnimation from "../VisibilityAnimation";
 
@@ -8,7 +8,9 @@ const BlockImages = ({data}) => {
     <BlockImagesStyles id="headerItem1">
       <BlockLeftImageStyles>
         <VisibilityAnimation transitionDelay={0.2}>
-          <img src={Example1.src} alt="Example 1" />
+          <a href="https://maps.app.goo.gl/RUNiNHZFYnWJEcwg8" target="_blank" rel="noopener noreferrer">
+            <img src={Example1.src} alt="Example 1" />
+          </a>
         </VisibilityAnimation>
         <TextContent>
           <VisibilityAnimation transitionDelay={0.3}>
@@ -21,7 +23,9 @@ const BlockImages = ({data}) => {
       </BlockLeftImageStyles>
       <BlockRightImageStyles>
         <VisibilityAnimation transitionDelay={0.2}>
-          <img src={Example2.src} alt="Example 2" />
+          <a href="https://maps.app.goo.gl/Hno9uNCzbmUgFcEk9" target="_blank" rel="noopener noreferrer">
+            <img src={Example2.src} alt="Example 2" />
+          </a>
         </VisibilityAnimation>
         <TextContent>
           <VisibilityAnimation transitionDelay={0.3}>
@@ -50,16 +54,26 @@ const BlockImagesStyles = styled.div`
 
   img {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
     border-radius: 10px;
+    transition: transform 0.3s ease; /* Transición suave */
+
+    @media (min-width: 769px) {
+      &:hover {
+        transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+      }
+    }
+
+    @media (max-width: 768px) {
+      max-width: 300px;
+    }
   }
 
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
     margin: 0;
-    width: 100%;
     margin-top: 100px;
     margin-bottom: 50px;
   }
@@ -121,7 +135,6 @@ const TextDescription = styled.p`
   text-align: center;
 
   @media (max-width: 768px) {
-    font-size: 14px;
     text-align: center;
   }
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import VisibilityAnimation from "../VisibilityAnimation";
 
 const ExploreWrapper = styled.div`
   width: 100%;
@@ -41,7 +42,7 @@ const Section = styled.div`
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   min-height: 120px;
   justify-content: flex-start;
   align-items: normal;
@@ -52,7 +53,6 @@ const Section = styled.div`
     font-weight: 700;
     color: white;
     margin: 0;
-    
   }
 
   ul {
@@ -101,14 +101,16 @@ const MapEmbed = styled.div`
 
 const Explore = ({ data }) => {
   return (
-    <ExploreWrapper id="headerItem3">
+    <ExploreWrapper id="headerItem4">
       <div>
         <ExploreContainer>
           {data.map((section) => (
             <Section key={section.id}>
-              <h2>{section.title}</h2>
+              <VisibilityAnimation>
+                <h2>{section.title}</h2>
+              </VisibilityAnimation>
               <ul>
-                {section.items.map((item, index) => (
+                {section.items?.map((item, index) => (
                   <li key={index}>
                     <a
                       href={item.url}
@@ -121,13 +123,15 @@ const Explore = ({ data }) => {
                 ))}
               </ul>
               {section.link_maps && (
-                <MapEmbed>
-                  <iframe
-                    src={section.link_maps}
-                    width="640"
-                    height="480"
-                  ></iframe>
-                </MapEmbed>
+                <VisibilityAnimation transitionDelay={0.3}>
+                  <MapEmbed>
+                    <iframe
+                      src={section.link_maps}
+                      width="640"
+                      height="480"
+                    ></iframe>
+                  </MapEmbed>
+                </VisibilityAnimation>
               )}
             </Section>
           ))}

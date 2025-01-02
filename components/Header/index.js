@@ -22,19 +22,7 @@ const HeaderContentStyles = styled.div`
   align-items: center;
   box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-
-  @media (min-width: 768px) {
-    padding: 0 10%;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0 10%;
-  }
-
-  @media (min-width: 1440px) {
-    padding: 0 15%;
-  }
+  padding: 0 15px;
 `;
 
 const HeaderDescriptionStyles = styled.div`
@@ -48,20 +36,21 @@ const HeaderDescriptionStyles = styled.div`
   gap: 10px;
 
   @media (min-width: 768px) {
-    justify-content: flex-end;
-    gap: 0;
+    justify-content: center;
+    gap: 50px;
   }
 `;
 
 const HeaderItemStyles = styled.p`
   position: relative;
-
-  @media (min-width: 768px) {
-    margin: 30px 5px;
-  }
+  margin: 0;
 `;
 
 const HeaderItemLinkStyles = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 19px 3px;
   text-decoration: none;
   color: #5c4d3d;
@@ -84,7 +73,7 @@ const HeaderItemLinkStyles = styled.a`
       background: #5c4d3d;
       transition: width 0.3s ease 0s, left 0.3s ease 0s;
       width: 0;
-      bottom: -30px;
+      bottom: 0px;
       top: initial;
       height: 3px;
     }
@@ -150,4 +139,3 @@ const Header = ({ data }) => {
 };
 
 export default Header;
-
