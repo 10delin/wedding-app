@@ -103,8 +103,8 @@ const Question = styled.div`
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 15px 25px;
-    gap: 5px;
+    padding: 15px 20px;
+    gap: 15px;
   }
 `;
 
@@ -135,6 +135,6 @@ const Answer = styled.div`
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: ${({ active }) => (active ? "15px 25px" : "0 25px")};
+    padding: ${({ active }) => (active ? "15px 20px" : "0 20px")};
   }
 `;
